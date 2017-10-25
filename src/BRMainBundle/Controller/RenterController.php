@@ -8,7 +8,6 @@ class RenterController extends Controller
 {
     public function indexAction()
     {
-          // Caca
         return $this->render('BRMainBundle:Renter:index.html.twig', array(
             // ...
         ));
