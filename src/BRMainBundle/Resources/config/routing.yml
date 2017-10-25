@@ -1,0 +1,7 @@
+br_main_homepage:
+    path:     /
+    defaults: { _controller: BRMainBundle:Default:index }
+
+br_renter_form:
+    path:     /renter
+    defaults: { _controller: BRMainBundle:Renter:index }

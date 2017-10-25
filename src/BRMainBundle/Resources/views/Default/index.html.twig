@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>{% block titleblock %}Je loue mon matos{% endblock %}</title>
+	</head>
+
+	<body>
+		{% block bannerblock %}<h1>Je loue mon matos</h1>{% endblock %}
+		{% block headerblock %}
+			<header>
+				<a href="{{path('br_renter_form')}}">Proposer mon matos</a>
+				<a href="">Inscription / Connexion</a>
+			</header>
+		{% endblock %}	
+		{% block searchblock %}
+			<section>
+				<select name="type">
+					<option value="0" selected>Qu'est-ce que je cherche?</option>
+					<option value="1">Du son</option>
+					<option value="2">De la lumière</option>
+					<option value="3">Des images</option>
+				</select>
+				<input type="text" name="location" placeholder="Où ça ?" />
+				<input type="checkbox" name="geolocation" /> Près de moi
+				<input type="submit" /> Rechercher
+			</section>
+		{% endblock %}
+		{% block contentblock %}
+		<h2>Ici les résultats de la recherche</h2>
+		{% endblock %}
+	</body>	
+</html>

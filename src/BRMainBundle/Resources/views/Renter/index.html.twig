@@ -1,0 +1,14 @@
+{% extends "BRMainBundle:Default:index.html.twig" %}
+
+{% block titleblock %} {{ parent() }} - Proposer {% endblock %}
+
+{% block bannerblock %}<h1>Proposer mon matos</h1>{% endblock %}
+
+{% block contentblock %}
+<h2>Voici le formulaire de location</h2>
+{% endblock %}
+
+{% block addblock %}
+	<button><a href={path('br_main_homepage')}>Ajouter</a></button>
+{% endblock %}
+
