@@ -12,12 +12,15 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $sound = new MatosTypes();
-        $sound->setName('Ecrans LCD');
+        $rep = $em->getRepository('BRMainBundle:MatosTypes');
 
-        $em->persist($sound);
-        $em->flush();
+        // $sound = new MatosTypes();
+        // $sound->setName('Images');
 
-        return $this->render('BRMainBundle:Default:index.html.twig', array());
+        // $em->persist($sound);
+        // $em->flush();
+
+        $matosTypesList = $rep->findAll();
+        return $this->render('BRMainBundle:Default:index.html.twig', array('matosTypesList' => $matosTypesList));
     }
 }

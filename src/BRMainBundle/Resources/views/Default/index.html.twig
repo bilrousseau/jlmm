@@ -13,15 +13,15 @@
 		{% endblock %}	
 		{% block searchblock %}
 			<section>
-				<select name="type">
+				<select name="matos-type">
 					<option value="0" selected>Qu'est-ce que je cherche?</option>
-					<option value="1">Du son</option>
-					<option value="2">De la lumière</option>
-					<option value="3">Des images</option>
+					{% for matosType in matosTypesList %}
+					<option value="{{matosType.id}}">{{matosType.name}}</option>
+					{% endfor %}
 				</select>
 				<input type="text" name="location" placeholder="Où ça ?" />
 				<input type="checkbox" name="geolocation" /> Près de moi
-				<input type="submit" /> Rechercher
+				<input type="submit" value="Rechercher"/>
 			</section>
 		{% endblock %}
 		{% block contentblock %}
