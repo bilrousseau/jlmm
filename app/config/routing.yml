@@ -1,3 +1,11 @@
+br_main_state:
+    resource: "@BRMainBundle/Controller/StateController.php"
+    type:     annotation
+
+br_main_matos:
+    resource: "@BRMainBundle/Controller/MatosController.php"
+    type:     annotation
+
 br_main:
     resource: "@BRMainBundle/Resources/config/routing.yml"
     prefix:   /

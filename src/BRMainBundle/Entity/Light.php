@@ -40,8 +40,8 @@ class Light
      *
      * @ORM\Column(name="lit_update", type="datetime")
      */
-    private $update;
-
+ 
+    private $dateUpdate;
     /**
      * @var bool
      *
@@ -121,7 +121,7 @@ class Light
      */
     public function setUpdate($update)
     {
-        $this->update = $update;
+        $this->dateUpdate = $update;
 
         return $this;
     }
@@ -133,7 +133,7 @@ class Light
      */
     public function getUpdate()
     {
-        return $this->update;
+        return $this->dateUpdate;
     }
 
     /**

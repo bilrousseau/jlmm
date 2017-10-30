@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>States list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Update</th>
+                <th>Dbstatus</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for state in states %}
+            <tr>
+                <td><a href="{{ path('state_show', { 'id': state.id }) }}">{{ state.id }}</a></td>
+                <td>{{ state.name }}</td>
+                <td>{{ state.description }}</td>
+                <td>{% if state.update %}{{ state.update|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if state.dbStatus %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('state_show', { 'id': state.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('state_edit', { 'id': state.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('state_new') }}">Create a new state</a>
+        </li>
+    </ul>
+{% endblock %}

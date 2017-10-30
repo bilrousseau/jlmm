@@ -152,7 +152,7 @@ class Users
      *
      * @ORM\Column(name="usr_update", type="datetime")
      */
-    private $update;
+    private $dateUpdate;
 
     /**
      * @var bool
@@ -607,13 +607,13 @@ class Users
     /**
      * Set update
      *
-     * @param \DateTime $update
+     * @param \DateTime $litUpdate
      *
-     * @return Users
+     * @return Light
      */
     public function setUpdate($update)
     {
-        $this->update = $update;
+        $this->dateUpdate = $update;
 
         return $this;
     }
@@ -625,7 +625,7 @@ class Users
      */
     public function getUpdate()
     {
-        return $this->update;
+        return $this->dateUpdate;
     }
 
     /**

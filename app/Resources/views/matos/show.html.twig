@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mato</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mato.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mato.name }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ mato.price }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{% if mato.state.name %}{{ mato.state.name }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Guarantee</th>
+                <td>{{ mato.guarantee }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ mato.age }}</td>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <td>{{ mato.brand }}</td>
+            </tr>
+            <tr>
+                <th>Publicationdate</th>
+                <td>{% if mato.publicationDate %}{{ mato.publicationDate|date('d/m/Y H:i') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Clicknb</th>
+                <td>{{ mato.clickNb }}</td>
+            </tr>
+            <tr>
+                <th>Propriétaire</th>
+                <td>{{ mato.user.firstname }} {{ mato.user.name }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ mato.matosType.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('matos_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('matos_edit', { 'id': mato.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

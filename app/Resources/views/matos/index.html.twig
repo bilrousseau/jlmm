@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Matos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>State</th>
+                <th>Guarantee</th>
+                <th>Age</th>
+                <th>Brand</th>
+                <th>Publicationdate</th>
+                <th>Clicknb</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mato in matos %}
+            <tr>
+                <td><a href="{{ path('matos_show', { 'id': mato.id }) }}">{{ mato.id }}</a></td>
+                <td>{{ mato.name }}</td>
+                <td>{{ mato.price }}</td>
+                <td>{% if mato.state.name %}{{ mato.state.name }}{% endif %}</td>
+                <td>{{ mato.guarantee }}</td>
+                <td>{{ mato.age }}</td>
+                <td>{{ mato.brand }}</td>
+                <td>{% if mato.publicationDate %}{{ mato.publicationDate|date('d/m/Y H:i') }}{% endif %}</td>
+                <td>{{ mato.clickNb }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('matos_show', { 'id': mato.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('matos_edit', { 'id': mato.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('matos_new') }}">Create a new mato</a>
+        </li>
+    </ul>
+{% endblock %}

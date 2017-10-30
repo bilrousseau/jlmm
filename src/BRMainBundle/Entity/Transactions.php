@@ -59,7 +59,7 @@ class Transactions
      *
      * @ORM\Column(name="trs_update", type="datetime")
      */
-    private $update;
+    private $dateUpdate;
 
     /**
      * @var bool
@@ -130,13 +130,13 @@ class Transactions
     /**
      * Set update
      *
-     * @param \DateTime $update
+     * @param \DateTime $litUpdate
      *
-     * @return Transactions
+     * @return Light
      */
     public function setUpdate($update)
     {
-        $this->update = $update;
+        $this->dateUpdate = $update;
 
         return $this;
     }

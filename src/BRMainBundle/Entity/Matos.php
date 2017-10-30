@@ -38,7 +38,8 @@ class Matos
     /**
      * @var array
      *
-     * @ORM\Column(name="mat_state", type="array")
+     * @ORM\ManyToOne(targetEntity="BRMainBundle\Entity\State")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $state;
 
@@ -82,7 +83,7 @@ class Matos
      *
      * @ORM\Column(name="mat_update", type="datetime")
      */
-    private $update;
+    private $dateUpdate;
 
     /**
      * @var bool
@@ -165,11 +166,11 @@ class Matos
     /**
      * Set state
      *
-     * @param array $state
+     * @param integer $state
      *
      * @return Matos
      */
-    public function setState($state)
+    public function setState(\BRMainBundle\Entity\State $state)
     {
         $this->state = $state;
 
@@ -179,7 +180,7 @@ class Matos
     /**
      * Get state
      *
-     * @return array
+     * @return State
      */
     public function getState()
     {
@@ -309,13 +310,13 @@ class Matos
     /**
      * Set update
      *
-     * @param \DateTime $update
+     * @param \DateTime $litUpdate
      *
-     * @return Matos
+     * @return Light
      */
     public function setUpdate($update)
     {
-        $this->update = $update;
+        $this->dateUpdate = $update;
 
         return $this;
     }
@@ -327,7 +328,7 @@ class Matos
      */
     public function getUpdate()
     {
-        return $this->update;
+        return $this->dateUpdate;
     }
 
     /**
@@ -371,7 +372,7 @@ class Matos
     /**
      * Get matosType
      *
-     * @return int
+     * @return MatosType
      */
     public function getMatosType()
     {
@@ -407,5 +408,29 @@ class Matos
     {
         $this->setUpdate(new \DateTime());
         $this->setDbStatus(true);
+    }
+
+    /**
+     * Set dateUpdate
+     *
+     * @param \DateTime $dateUpdate
+     *
+     * @return Matos
+     */
+    public function setDateUpdate($dateUpdate)
+    {
+        $this->dateUpdate = $dateUpdate;
+
+        return $this;
+    }
+
+    /**
+     * Get dateUpdate
+     *
+     * @return \DateTime
+     */
+    public function getDateUpdate()
+    {
+        return $this->dateUpdate;
     }
 }

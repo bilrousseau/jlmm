@@ -34,7 +34,7 @@ class MatosTypes
      *
      * @ORM\Column(name="mtp_update", type="datetime")
      */
-    private $update;
+    private $dateUpdate;
 
     /**
      * @var bool
@@ -78,16 +78,16 @@ class MatosTypes
         return $this->name;
     }
 
-        /**
+    /**
      * Set update
      *
-     * @param \DateTime $update
+     * @param \DateTime $litUpdate
      *
-     * @return Sound
+     * @return Light
      */
     public function setUpdate($update)
     {
-        $this->update = $update;
+        $this->dateUpdate = $update;
 
         return $this;
     }
@@ -99,7 +99,7 @@ class MatosTypes
      */
     public function getUpdate()
     {
-        return $this->update;
+        return $this->dateUpdate;
     }
 
     /**

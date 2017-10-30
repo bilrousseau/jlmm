@@ -41,7 +41,7 @@ class Sound
      *
      * @ORM\Column(name="snd_update", type="datetime")
      */
-    private $update;
+    private $dateUpdate;
 
     /**
      * @var bool
@@ -118,13 +118,13 @@ class Sound
     /**
      * Set update
      *
-     * @param \DateTime $update
+     * @param \DateTime $litUpdate
      *
-     * @return Sound
+     * @return Light
      */
     public function setUpdate($update)
     {
-        $this->update = $update;
+        $this->dateUpdate = $update;
 
         return $this;
     }
@@ -136,7 +136,7 @@ class Sound
      */
     public function getUpdate()
     {
-        return $this->update;
+        return $this->dateUpdate;
     }
 
     /**
