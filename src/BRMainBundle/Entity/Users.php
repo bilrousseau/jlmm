@@ -71,9 +71,8 @@ class Users
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_picture", type="string", length=127, nullable=true, unique=true)
+     * @ORM\OneToOne(targetEntity="BRMainBundle\Entity\Picture")
+     * @ORM\JoinColumn(nullable=true, unique=true)
      */
     private $picture;
 

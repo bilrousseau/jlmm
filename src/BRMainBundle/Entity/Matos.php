@@ -3,14 +3,16 @@
 namespace BRMainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use BRMainBundle\Prototype\EntityPrototype;
 
 /**
  * Matos
  *
  * @ORM\Table(name="matos")
  * @ORM\Entity(repositoryClass="BRMainBundle\Repository\MatosRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
-class Matos
+class Matos extends EntityPrototype
 {
     /**
      * @var int
@@ -103,6 +105,11 @@ class Matos
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BRMainBundle\Entity\Picture", mappedBy="matos")
+     */
+    private $pictures;
 
 
     /**
@@ -322,6 +329,14 @@ class Matos
     }
 
     /**
+     * @ORM\PreUpdate
+     */
+    /*public function dateUpdate()
+    {
+        $this->setUpdate(new \DateTime());
+    }*/
+   
+    /**
      * Get update
      *
      * @return \DateTime
@@ -432,5 +447,39 @@ class Matos
     public function getDateUpdate()
     {
         return $this->dateUpdate;
+    }
+
+    /**
+     * Add picture
+     *
+     * @param \BRMainBundle\Entity\Picture $picture
+     *
+     * @return Matos
+     */
+    public function addPicture(\BRMainBundle\Entity\Picture $picture)
+    {
+        $this->pictures[] = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Remove picture
+     *
+     * @param \BRMainBundle\Entity\Picture $picture
+     */
+    public function removePicture(\BRMainBundle\Entity\Picture $picture)
+    {
+        $this->pictures->removeElement($picture);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
     }
 }
