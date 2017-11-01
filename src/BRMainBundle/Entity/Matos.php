@@ -4,6 +4,8 @@ namespace BRMainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BRMainBundle\Prototype\EntityPrototype;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Matos
@@ -26,6 +28,7 @@ class Matos extends EntityPrototype
     /**
      * @var string
      *
+     * @Assert\Length(min=3)
      * @ORM\Column(name="mat_name", type="string", length=255)
      */
     private $name;
