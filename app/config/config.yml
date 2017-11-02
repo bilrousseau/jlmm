@@ -73,3 +73,11 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: BR\UserBundle\Entity\SecurityUser
+    from_email:
+        address: bill.rousseau@outlook.com
+        sender_name: Notre appli de test sur Symfony

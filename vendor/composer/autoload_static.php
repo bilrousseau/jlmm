@@ -63,6 +63,7 @@ class ComposerStaticInit374429f4ab4935127e2d36a0613c8d3a
         'F' => 
         array (
             'Fig\\Link\\' => 9,
+            'FOS\\UserBundle\\' => 15,
         ),
         'D' => 
         array (
@@ -79,6 +80,7 @@ class ComposerStaticInit374429f4ab4935127e2d36a0613c8d3a
         ),
         'B' => 
         array (
+            'BR\\UserBundle\\' => 14,
             'BRMainBundle\\' => 13,
         ),
         'A' => 
@@ -196,6 +198,10 @@ class ComposerStaticInit374429f4ab4935127e2d36a0613c8d3a
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
         ),
+        'FOS\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+        ),
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
@@ -223,6 +229,10 @@ class ComposerStaticInit374429f4ab4935127e2d36a0613c8d3a
         'Composer\\CaBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
+        ),
+        'BR\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/BR/UserBundle',
         ),
         'BRMainBundle\\' => 
         array (

@@ -8,7 +8,11 @@
 		{% block headerblock %}
 			<header>
 				<a href="{{path('br_renter_form')}}">Proposer mon matos</a>
-				<a href="">Inscription / Connexion</a>
+				{% if app.user %}
+					<a href="{{path('fos_user_security_logout')}}">Déconnexion</a>
+				{% else %}
+					<a href="{{path('fos_user_security_login')}}">Inscription / Connexion</a>
+				{% endif %}
 			</header>
 		{% endblock %}	
 		{% block searchblock %}

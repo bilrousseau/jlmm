@@ -1,0 +1,4 @@
+services:
+#    br_user.example:
+#        class: BR\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
