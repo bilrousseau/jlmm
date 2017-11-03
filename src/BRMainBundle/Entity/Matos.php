@@ -104,10 +104,10 @@ class Matos extends EntityPrototype
     private $matosType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BRMainBundle\Entity\Users")
+     * @ORM\ManyToOne(targetEntity="BR\UserBundle\Entity\SecurityUser", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $securityUser;
 
     /**
      * @ORM\OneToMany(targetEntity="BRMainBundle\Entity\Picture", mappedBy="matos")
@@ -404,9 +404,9 @@ class Matos extends EntityPrototype
      *
      * @return Matos
      */
-    public function setUser(\BRMainBundle\Entity\Users $user)
+    public function setUser(\BR\UserBundle\Entity\SecurityUser $user)
     {
-        $this->user = $user;
+        $this->securityUser = $user;
 
         return $this;
     }
@@ -418,7 +418,7 @@ class Matos extends EntityPrototype
      */
     public function getUser()
     {
-        return $this->user;
+        return $this->securityUser;
     }
 
 
@@ -484,5 +484,29 @@ class Matos extends EntityPrototype
     public function getPictures()
     {
         return $this->pictures;
+    }
+
+    /**
+     * Set securityUser
+     *
+     * @param \BR\UserBundle\Entity\SecurityUser $securityUser
+     *
+     * @return Matos
+     */
+    public function setSecurityUser(\BR\UserBundle\Entity\SecurityUser $securityUser)
+    {
+        $this->securityUser = $securityUser;
+
+        return $this;
+    }
+
+    /**
+     * Get securityUser
+     *
+     * @return \BR\UserBundle\Entity\SecurityUser
+     */
+    public function getSecurityUser()
+    {
+        return $this->securityUser;
     }
 }

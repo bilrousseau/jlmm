@@ -27,8 +27,8 @@ class MatosType extends AbstractType
         //->add('clickNb')
         //->add('update')
         //->add('dbStatus')
-        ->add('matosType', EntityType::class, array('class' => 'BRMainBundle:MatosTypes', 'choice_label' => 'name', 'label' => 'Type de matériel'))
-        ->add('user', EntityType::class, array('class' => 'BRMainBundle:Users', 'choice_label' => 'firstname', 'label' => 'Utilisateur'));
+        ->add('matosType', EntityType::class, array('class' => 'BRMainBundle:MatosTypes', 'choice_label' => 'name', 'label' => 'Type de matériel'));
+        //->add('user', EntityType::class, array('class' => 'BRUserBundle:SecurityUser', 'choice_label' => 'username', 'label' => 'Utilisateur'));
     }
     
     /**

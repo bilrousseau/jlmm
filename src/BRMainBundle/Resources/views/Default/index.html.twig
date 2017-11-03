@@ -7,11 +7,12 @@
 		{% block bannerblock %}<h1>Je loue mon matos</h1>{% endblock %}
 		{% block headerblock %}
 			<header>
-				<a href="{{path('br_renter_form')}}">Proposer mon matos</a>
-				{% if app.user %}
-					<a href="{{path('fos_user_security_logout')}}">Déconnexion</a>
-				{% else %}
-					<a href="{{path('fos_user_security_login')}}">Inscription / Connexion</a>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			    	Connecté en tant que {{ app.user.username }}
+			    	-
+			    	<a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+					{% else %}
+			    	<a href="{{ path('fos_user_security_login') }}">Connexion</a>
 				{% endif %}
 			</header>
 		{% endblock %}	

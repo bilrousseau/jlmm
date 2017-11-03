@@ -39,17 +39,21 @@ class MatosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $mato = new Matos();
-
-        $user = $this->getDoctrine()->getManager()->getRepository('BRMainBundle:Users')->find('1');
-        $mato->setUser($user);
-        $mato->setPublicationDate(new \DateTime());
-        $mato->setClickNb($mato->getClickNb() + 1);
+        $initMatos = $this->get('br_main.initmatos');
+        $mato = $initMatos->setCurrentUser();
+        if (null === $mato) {
+            return $this->redirectToRoute('br_main_homepage');
+        }
+        
         $form = $this->createForm('BRMainBundle\Form\MatosType', $mato);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            // echo "<pre>";
+            // print_r($mato);
+            // echo "</pre>";   
+            // die();
             $em->persist($mato);
             $em->flush();
 

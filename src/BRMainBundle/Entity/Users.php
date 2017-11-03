@@ -22,27 +22,6 @@ class Users
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_name", type="string", length=127)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_first_name", type="string", length=127)
-     */
-    private $firstName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_nickname", type="string", length=127, unique=true)
-     */
-    private $nickname;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_birth_date", type="datetime")
@@ -55,20 +34,6 @@ class Users
      * @ORM\Column(name="usr_phone", type="string", length=15)
      */
     private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_email", type="string", length=127, unique=true)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_password", type="string", length=255)
-     */
-    private $password;
 
     /**
      * @ORM\OneToOne(targetEntity="BRMainBundle\Entity\Picture")
@@ -140,11 +105,10 @@ class Users
     private $isOnline;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="usr_last_connection", type="datetime")
+     * @ORM\OneToOne(targetEntity="BR\UserBundle\Entity\SecurityUser")
+     * @ORM\JoinColumn(nullable=false, unique=true)
      */
-    private $lastConnection;
+    private $securityUser;
 
     /**
      * @var \DateTime
@@ -169,78 +133,6 @@ class Users
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Users
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return Users
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set nickname
-     *
-     * @param string $nickname
-     *
-     * @return Users
-     */
-    public function setNickname($nickname)
-    {
-        $this->nickname = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Get nickname
-     *
-     * @return string
-     */
-    public function getNickname()
-    {
-        return $this->nickname;
     }
 
     /**
@@ -289,54 +181,6 @@ class Users
     public function getPhone()
     {
         return $this->phone;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Users
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Users
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
@@ -580,30 +424,6 @@ class Users
     }
 
     /**
-     * Set lastConnection
-     *
-     * @param \DateTime $lastConnection
-     *
-     * @return Users
-     */
-    public function setLastConnection($lastConnection)
-    {
-        $this->lastConnection = $lastConnection;
-
-        return $this;
-    }
-
-    /**
-     * Get lastConnection
-     *
-     * @return \DateTime
-     */
-    public function getLastConnection()
-    {
-        return $this->lastConnection;
-    }
-
-    /**
      * Set update
      *
      * @param \DateTime $litUpdate
@@ -679,5 +499,29 @@ class Users
     public function getDateUpdate()
     {
         return $this->dateUpdate;
+    }
+
+    /**
+     * Set securityUser
+     *
+     * @param \BR\UserBundle\Entity\SecurityUser $securityUser
+     *
+     * @return Users
+     */
+    public function setSecurityUser(\BR\UserBundle\Entity\SecurityUser $securityUser)
+    {
+        $this->securityUser = $securityUser;
+
+        return $this;
+    }
+
+    /**
+     * Get securityUser
+     *
+     * @return \BR\UserBundle\Entity\SecurityUser
+     */
+    public function getSecurityUser()
+    {
+        return $this->securityUser;
     }
 }
